@@ -1,0 +1,104 @@
+name: Build and release VSIX
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: koda-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Koda VSIX
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate theme
+        run: npm run generate
+
+      - name: Read extension metadata
+        id: metadata
+        shell: bash
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          TAG="v${VERSION}"
+          FILE="koda-theme-vscode-${VERSION}.vsix"
+
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "file=${FILE}" >> "$GITHUB_OUTPUT"
+
+      - name: Package VSIX
+        run: |
+          npx --no-install vsce package \
+            --out "${{ steps.metadata.outputs.file }}"
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: koda-vsix-${{ github.sha }}
+          path: ${{ steps.metadata.outputs.file }}
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Check whether release already exists
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.metadata.outputs.tag }}
+        shell: bash
+        run: |
+          if gh release view "$TAG" \
+            --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create GitHub release
+        if: >
+          github.ref == 'refs/heads/main' &&
+          steps.release.outputs.exists == 'false'
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ steps.metadata.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          name: Koda ${{ steps.metadata.outputs.tag }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: ${{ steps.metadata.outputs.file }}
+
+      - name: Publish to VS Code Marketplace
+        if: >
+          github.ref == 'refs/heads/main' &&
+          steps.release.outputs.exists == 'false'
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: |
+          npx --no-install vsce publish \
+            --packagePath "${{ steps.metadata.outputs.file }}" \
+            --pat "$VSCE_PAT"
