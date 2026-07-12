@@ -18,7 +18,7 @@ A faithful Visual Studio Code port of [koda.nvim](https://github.com/oskarnurm/k
 
 </div>
 
-<img width="1442" height="901" alt="image" src="https://github.com/user-attachments/assets/783181c4-2674-40cf-9aab-ed427ce63cf9" />
+<img alt="image" src="https://github.com/user-attachments/assets/783181c4-2674-40cf-9aab-ed427ce63cf9" />
 
 ## Overview
  
