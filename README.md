@@ -6,7 +6,7 @@
 
 ## Overview
  
-Koda is a dark, minimal color theme designed for long coding sessions and clean visual focus. This extension brings the exact look and feel of the **Koda.nvim** Neovim theme to VS Code — down to the syntax highlighting, workbench chrome, and semantic tokens.
+Koda is a dark, minimal color theme designed for long coding sessions and clean visual focus. This extension brings the exact look and feel of the **koda.nvim** Neovim theme to VS Code — down to the syntax highlighting, workbench chrome, and semantic tokens.
 
 ## Features
 
