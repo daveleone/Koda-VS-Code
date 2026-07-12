@@ -2,7 +2,12 @@
   "name": "koda-theme-vscode",
   "displayName": "Koda Neovim Theme For Visual Studio Code",
   "description": "oskarnurm's Koda neovim theme ported to Visual Studio Code",
-  "version": "0.0.1",
+  "icon": "assets/images/icon.png",
+  "galleryBanner": {
+    "color": "#101010",
+    "theme": "dark"
+  },
+  "version": "0.0.2",
   "publisher": "davellen",
   "license": "MIT",
   "engines": {
