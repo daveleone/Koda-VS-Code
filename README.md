@@ -10,9 +10,10 @@ A faithful Visual Studio Code port of [koda.nvim](https://github.com/oskarnurm/k
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/VS%20Code-1.90%2B-8ebeec?style=flat-square&labelColor=101010" alt="VS Code 1.90 or newer" />
-  <img src="https://img.shields.io/badge/theme-dark-d9ba73?style=flat-square&labelColor=101010" alt="Dark theme" />
-  <a href="./LICENSE"><img src="https://img.shields.io/github/license/daveleone/Koda-VS-Code?style=flat-square&labelColor=101010&color=b0b0b0" alt="MIT License" /></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=davellen.koda-theme-vscode"><img src="https://img.shields.io/badge/VS%20Code%20Marketplace-Koda%20Theme-8ebeec?style=for-the-badge&labelColor=101010" alt="VS Code Marketplace" /></a>&nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/VS%20Code-1.90%2B-8ebeec?style=for-the-badge&labelColor=101010" alt="VS Code 1.90 or newer" />&nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/theme-dark-d9ba73?style=for-the-badge&labelColor=101010" alt="Dark theme" />&nbsp;&nbsp;
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/daveleone/Koda-VS-Code?style=for-the-badge&labelColor=101010&color=b0b0b0" alt="MIT License" /></a>
 </p>
 
 </div>
