@@ -1,0 +1,44 @@
+{
+  "name": "koda-vscode",
+  "displayName": "Koda",
+  "description": "oskarnurm's Koda neovim theme ported to Visual Studio Code",
+  "version": "0.0.1",
+  "publisher": "davellen",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daveleone/Koda-VS-Code"
+  },
+  "bugs": {
+    "url": "https://github.com/daveleone/Koda-VS-Code/issues"
+  },
+  "homepage": "https://github.com/daveleone/Koda-VS-Code",
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "koda",
+    "neovim",
+    "theme",
+    "dark"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Koda",
+        "uiTheme": "vs-dark",
+        "path": "./themes/koda-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "generate": "bun src/generate.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.0.0"
+  }
+}

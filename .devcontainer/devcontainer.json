@@ -1,0 +1,19 @@
+{
+    "name": "devcontainer",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode-remote.remote-containers",
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
+    "remoteUser": "root"
+}
