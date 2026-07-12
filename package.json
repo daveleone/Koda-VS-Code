@@ -1,6 +1,6 @@
 {
-  "name": "koda-vscode",
-  "displayName": "Koda",
+  "name": "koda-theme-vscode",
+  "displayName": "Koda Neovim Theme For Visual Studio Code",
   "description": "oskarnurm's Koda neovim theme ported to Visual Studio Code",
   "version": "0.0.1",
   "publisher": "davellen",
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
+    "@vscode/vsce": "^3.9.2",
     "typescript": "^5.0.0"
   }
 }
