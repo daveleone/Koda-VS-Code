@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const panel = {
+export const panel = (palette: Palette) => ({
 
     "panel.background":
         palette.bg,
@@ -16,4 +16,4 @@ export const panel = {
     "panelTitle.inactiveForeground":
         palette.comment,
 
-};
+});

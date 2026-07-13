@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const quickinput = {
+export const quickinput = (palette: Palette) => ({
 
     "quickInput.background":
         palette.bg,
@@ -37,4 +37,4 @@ export const quickinput = {
     "quickInputList.focusForeground":
         palette.emphasis,
 
-};
+});

@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const statusbar = {
+export const statusbar = (palette: Palette) => ({
 
     "statusBar.background":
         palette.bg,
@@ -26,4 +26,4 @@ export const statusbar = {
 
     "statusBarItem.remoteBackground":
         palette.bg,
-};
+});

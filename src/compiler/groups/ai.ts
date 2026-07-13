@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const ai = {
+export const ai = (palette: Palette) => ({
 
     //
     // Inline suggestions (Copilot ghost text)
@@ -67,4 +67,4 @@ export const ai = {
     "inlineChat.foreground":
         palette.fg,
 
-};
+});

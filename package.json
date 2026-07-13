@@ -2,12 +2,12 @@
   "name": "koda-theme-vscode",
   "displayName": "Koda Neovim Theme For Visual Studio Code",
   "description": "oskarnurm's Koda neovim theme ported to Visual Studio Code",
-  "icon": "assets/images/icon.png",
+  "icon": "assets/icons/icon.png",
   "galleryBanner": {
     "color": "#101010",
     "theme": "dark"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "davellen",
   "license": "MIT",
   "engines": {
@@ -33,9 +33,24 @@
   "contributes": {
     "themes": [
       {
-        "label": "Koda",
+        "label": "Koda Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/koda-color-theme.json"
+        "path": "./themes/koda-dark-color-theme.json"
+      },
+      {
+        "label": "Koda Glade",
+        "uiTheme": "vs",
+        "path": "./themes/koda-glade-color-theme.json"
+      },
+      {
+        "label": "Koda Light",
+        "uiTheme": "vs",
+        "path": "./themes/koda-light-color-theme.json"
+      },
+      {
+        "label": "Koda Moss",
+        "uiTheme": "vs-dark",
+        "path": "./themes/koda-moss-color-theme.json"
       }
     ]
   },

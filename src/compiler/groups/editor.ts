@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const editor = {
+export const editor = (palette: Palette) => ({
 
     "editor.background":
         palette.bg,
@@ -48,4 +48,4 @@ export const editor = {
 
     "editorSuggestWidget.highlightForeground":
         palette.emphasis,
-};
+});

@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const menubar = {
+export const menubar = (palette: Palette) => ({
 
     "menubar.selectionForeground":
         palette.emphasis,
@@ -21,4 +21,4 @@ export const menubar = {
     "menu.selectionForeground":
         palette.emphasis,
 
-};
+});

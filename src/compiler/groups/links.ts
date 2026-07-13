@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const links = {
+export const links = (palette: Palette) => ({
 
     //
     // Normal links
@@ -32,4 +32,4 @@ export const links = {
     "walkthrough.embeddedEditorBackground":
         palette.bg,
 
-};
+});

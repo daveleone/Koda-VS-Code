@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const progress = {
+export const progress = (palette: Palette) => ({
 
     //
     // Global progress bars
@@ -11,4 +11,4 @@ export const progress = {
         palette.const,
 
 
-};
+});

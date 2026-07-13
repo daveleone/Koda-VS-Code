@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const tabs = {
+export const tabs = (palette: Palette) => ({
 
     //
     // File tabs
@@ -45,4 +45,4 @@ export const tabs = {
     "tab.hoverBackground":
         palette.line,
 
-};
+});

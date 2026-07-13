@@ -1,10 +1,8 @@
-import { palette } from "./palette";
 import { token } from "./tokens";
+import type { Palette } from "./types";
 
 
-export const syntax = [
-
-    // Comment
+export const syntax = (palette: Palette) => [
     token(
         [
             "comment",
@@ -16,116 +14,120 @@ export const syntax = [
         }
     ),
 
-
-    // Constants
     token(
         [
             "constant",
-            "constant.language"
+            "constant.language",
+            "constant.numeric",
+            "constant.numeric.integer",
+            "constant.numeric.float",
+            "constant.language.boolean",
+            "support.constant",
+            "variable.other.enummember"
         ],
         {
             foreground: palette.const
         }
     ),
 
-
-    // Strings
     token(
         [
             "string",
-            "string.quoted"
+            "string.quoted",
+            "string.template",
+            "string.regexp"
         ],
         {
             foreground: palette.string
         }
     ),
 
-
-    // Characters
     token(
         [
-            "constant.character"
+            "constant.character",
+            "constant.character.escape"
         ],
         {
             foreground: palette.char
         }
     ),
 
-
-    // Numbers
-    token(
-        [
-            "constant.numeric"
-        ],
-        {
-            foreground: palette.const
-        }
-    ),
-
-
-    // Boolean
-    token(
-        [
-            "constant.language.boolean"
-        ],
-        {
-            foreground: palette.const
-        }
-    ),
-
-
-    // Variables
     token(
         [
             "variable",
-            "identifier"
+            "variable.other",
+            "variable.parameter",
+            "variable.language",
+            "identifier",
+            "entity.name.variable",
+            "variable.other.readwrite",
+            "variable.other.property",
+            "variable.object.property",
+            "variable.member"
         ],
         {
-            foreground: palette.special
+            foreground: palette.fg
         }
     ),
 
-
-    // Functions
     token(
         [
-            "entity.name.function",
-            "support.function"
-        ],
-        {
-            foreground: palette.func
-        }
-    ),
-
-
-    // Keywords
-    token(
-        [
-            "keyword",
-            "storage"
+            "variable.other.readwrite.alias",
+            "entity.name.namespace",
+            "entity.name.import",
+            "support.module",
+            "support.type"
         ],
         {
             foreground: palette.keyword
         }
     ),
 
+    token(
+        [
+            "entity.name.function",
+            "support.function",
+            "variable.function",
+            "meta.function-call",
+            "support.function.builtin"
+        ],
+        {
+            foreground: palette.func
+        }
+    ),
 
-    // Operators
+    token(
+        [
+            "keyword",
+            "keyword.control",
+            "storage",
+            "storage.modifier",
+            "meta.preprocessor",
+            "keyword.control.import",
+            "keyword.control.from"
+        ],
+        {
+            foreground: palette.keyword
+        }
+    ),
+
     token(
         [
             "keyword.operator",
-            "punctuation.separator"
+            "punctuation.separator",
+            "punctuation.accessor"
         ],
         {
             foreground: palette.operator
         }
     ),
 
-
-    // Types
     token(
         [
             "entity.name.type",
+            "entity.name.class",
+            "entity.name.interface",
+            "entity.name.struct",
             "support.type"
         ],
         {
@@ -133,19 +135,20 @@ export const syntax = [
         }
     ),
 
-
-    // Preprocessor
     token(
         [
-            "meta.preprocessor"
+            "storage.type",
+            "storage.type.class",
+            "storage.type.interface",
+            "storage.type.struct",
+            "storage.class",
+            "storage.modifier"
         ],
         {
-            foreground: palette.fg
+            foreground: palette.keyword
         }
     ),
 
-
-    // Tags (HTML/XML)
     token(
         [
             "entity.name.tag"
@@ -155,8 +158,6 @@ export const syntax = [
         }
     ),
 
-
-    // Errors
     token(
         [
             "invalid"
@@ -166,8 +167,6 @@ export const syntax = [
         }
     ),
 
-
-    // Added / changed / removed
     token(
         [
             "markup.inserted"
@@ -239,6 +238,16 @@ export const syntax = [
         {
             foreground: palette.info,
             fontStyle: "underline"
+        }
+    ),
+
+    token(
+        [
+            "variable.other.constant.property",
+            "variable.other.constant.property.ts"
+        ],
+        {
+            foreground: palette.keyword
         }
     ),
 ];

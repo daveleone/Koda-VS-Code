@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const interactive = {
+export const interactive = (palette: Palette) => ({
 
     //
     // General focus
@@ -111,4 +111,4 @@ export const interactive = {
     "notifications.foreground":
         palette.fg,
 
-};
+});

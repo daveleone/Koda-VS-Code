@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const activitybar = {
+export const activitybar = (palette: Palette) => ({
 
     "activityBar.background":
         palette.bg,
@@ -23,4 +23,4 @@ export const activitybar = {
 
     "activityBarBadge.foreground":
         palette.emphasis,
-};
+});

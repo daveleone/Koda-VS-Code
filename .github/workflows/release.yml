@@ -102,3 +102,14 @@ jobs:
           npx --no-install vsce publish \
             --packagePath "${{ steps.metadata.outputs.file }}" \
             --pat "$VSCE_PAT"
+
+      - name: Publish to Open VSX
+        if: >
+          github.ref == 'refs/heads/main' &&
+          steps.release.outputs.exists == 'false'
+        env:
+          OPVSX_PAT: ${{ secrets.OPVSX_PAT }}
+        run: |
+          npx --no-install ovsx publish \
+            "${{ steps.metadata.outputs.file }}" \
+            --pat "$OPVSX_PAT"

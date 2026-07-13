@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const titlebar = {
+export const titlebar = (palette: Palette) => ({
 
     "titleBar.activeBackground":
         palette.bg,
@@ -15,4 +15,4 @@ export const titlebar = {
     "titleBar.inactiveForeground":
         palette.comment,
 
-};
+});

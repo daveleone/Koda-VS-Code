@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const notifications = {
+export const notifications = (palette: Palette) => ({
 
     //
     // Notification cards
@@ -36,4 +36,4 @@ export const notifications = {
     "notificationsErrorIcon.foreground":
         palette.danger,
 
-};
+});

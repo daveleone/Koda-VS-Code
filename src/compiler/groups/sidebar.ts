@@ -1,7 +1,7 @@
-import { palette } from "../palette";
+import type { Palette } from "../types";
 
 
-export const sidebar = {
+export const sidebar = (palette: Palette) => ({
 
     //
     // Explorer / sidebar
@@ -61,4 +61,4 @@ export const sidebar = {
     "welcomePage.tileHoverBackground":
         palette.line,
 
-};
+});

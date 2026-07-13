@@ -1,45 +1,49 @@
-import { editor } from "./editor";
-import { tabs } from "./tabs";
-import { sidebar } from "./sidebar";
-import { panel } from "./panel";
-import { statusbar } from "./statusbar";
-import { menubar } from "./menubar";
-import { quickinput } from "./quickinput";
 import { activitybar } from "./activitybar";
-import { titlebar } from "./titlebar";
-import { interactive } from "./interactive";
 import { ai } from "./ai";
+import { editor } from "./editor";
+import { interactive } from "./interactive";
 import { links } from "./links";
+import { menubar } from "./menubar";
 import { notifications } from "./notifications";
+import { panel } from "./panel";
 import { progress } from "./progress";
+import { quickinput } from "./quickinput";
+import { sidebar } from "./sidebar";
+import { statusbar } from "./statusbar";
+import { tabs } from "./tabs";
+import { titlebar } from "./titlebar";
 
-export const ui = {
+import type { Palette } from "../types";
 
-    ...editor,
+export const createUI = (palette: Palette) => ({
 
-    ...tabs,
+    ...activitybar(palette),
 
-    ...sidebar,
+    ...ai(palette),
 
-    ...panel,
+    ...editor(palette),
 
-    ...statusbar,
+    ...interactive(palette),
 
-    ...menubar,
+    ...links(palette),
 
-    ...quickinput,
+    ...menubar(palette),
 
-    ...activitybar,
+    ...notifications(palette),
 
-    ...titlebar,
+    ...panel(palette),
 
-    ...interactive,
+    ...progress(palette),
 
-    ...ai,
+    ...quickinput(palette),
 
-    ...links,
+    ...sidebar(palette),
 
-    ...notifications,
+    ...statusbar(palette),
 
-    ...progress,
-};
+    ...tabs(palette),
+
+    ...titlebar(palette),
+});
+
+export const ui = createUI;
