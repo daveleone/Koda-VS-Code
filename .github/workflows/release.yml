@@ -110,6 +110,6 @@ jobs:
         env:
           OPVSX_PAT: ${{ secrets.OPVSX_PAT }}
         run: |
-          npx --no-install ovsx publish \
+          npx --yes ovsx publish \
             "${{ steps.metadata.outputs.file }}" \
             --pat "$OPVSX_PAT"
