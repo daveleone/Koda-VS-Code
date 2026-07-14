@@ -25,26 +25,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Generate theme
-        run: npm run generate
+        run: bun run generate
 
       - name: Read extension metadata
         id: metadata
         shell: bash
         run: |
-          VERSION="$(node -p "require('./package.json').version")"
+          VERSION="$(bun -e "console.log(require('./package.json').version)")"
           TAG="v${VERSION}"
           FILE="koda-theme-vscode-${VERSION}.vsix"
 
@@ -54,7 +48,7 @@ jobs:
 
       - name: Package VSIX
         run: |
-          npx --no-install vsce package \
+          bunx vsce package \
             --out "${{ steps.metadata.outputs.file }}"
 
       - name: Upload VSIX artifact
@@ -99,7 +93,7 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
         run: |
-          npx --no-install vsce publish \
+          bunx vsce publish \
             --packagePath "${{ steps.metadata.outputs.file }}" \
             --pat "$VSCE_PAT"
 
@@ -110,6 +104,6 @@ jobs:
         env:
           OPVSX_PAT: ${{ secrets.OPVSX_PAT }}
         run: |
-          npx --yes ovsx publish \
+          bunx ovsx publish \
             "${{ steps.metadata.outputs.file }}" \
             --pat "$OPVSX_PAT"
